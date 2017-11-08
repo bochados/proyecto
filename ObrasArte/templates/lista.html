@@ -1,0 +1,6 @@
+{% extends 'Base.html' %}
+{%block content%}
+{%for pintura in pintura%}
+<h1><a href="{% url 'detalle_pintura' pk=pintura.pk %}"> {{pintura.nombre_pintura}}</a></h1>
+{% endfor %}
+{% endblock %}

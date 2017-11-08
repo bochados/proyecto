@@ -1,0 +1,11 @@
+{% extends 'Base.html' %}
+{% block content%}
+  <div>
+    <a class="btn btn-default" href="{% url 'eliminar_artista' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+    <h1>{{ post.nombre}}</h1>
+    <h2>{{post.edad}}</h1>
+    {% for datos in datos %}
+    <h2>{{datos.nombre_pintura}}</h2><br>
+    {% endfor %}
+  </div>
+{%endblock%}

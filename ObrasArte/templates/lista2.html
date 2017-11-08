@@ -1,0 +1,6 @@
+{% extends 'Base.html' %}
+{%block content%}
+{%for artista in artista%}
+<h1><a href="{% url 'detalle_artista' pk=artista.pk %}"> {{artista.nombre}}</h1>
+{% endfor %}
+{% endblock %}

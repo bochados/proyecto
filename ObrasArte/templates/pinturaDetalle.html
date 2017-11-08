@@ -1,0 +1,9 @@
+{% extends 'Base.html' %}
+{% block content%}
+  <div>
+    <a class="btn btn-default" href="{% url 'editar_pintura' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-default" href="{% url 'eliminar_pintura' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+    <h1>{{ post.nombre_pintura}}</h1>
+    <h2>{{post.estilo}}</h1>
+  </div>
+{%endblock%}
