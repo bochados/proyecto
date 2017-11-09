@@ -11,7 +11,7 @@ def listar_pintura(request):
 def listar_artista(request):
     artista=Artista.objects.all()
     return render(request,'lista2.html',{'artista':artista})
-@login_required 
+@login_required
 def Artista_nuevo(request):
     if request.method == "POST":
         formulario = ArtistaForm(request.POST)
@@ -57,9 +57,9 @@ def editar_pintura(request, pk):
     if request.method =='POST':
         formulario=PinturaForm(request.POST, instance=post)
         if formulario.is_valid():
-            post=formulario.save(commit=false)
+            post=formulario.save()
             post.save()
-            return redirect('/nueva/pintura/', pk=post.id)
+            return redirect('listar_pintura')
     else:
          formulario=PinturaForm(instance=post)
     return render (request,'Pintura_editar.html',{'formulario':formulario})
