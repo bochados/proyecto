@@ -6,13 +6,18 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/blog.css'%}">
     <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    
+
   </head>
 <div class="page-header">
-     <a href="{% url 'listar_pintura' %}">Obras</a>
-     <a href="{% url 'listar_artista' %}">Artistas</a>
-     <a href="{% url 'Artista_nuevo' %}">Nuevo artista</a>
-     <a href="{% url 'Pintura_nueva' %}">Nueva pintura</a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'listar_pintura' %}">Obras</a>
+      <a href="{% url 'listar_artista' %}">Artistas</a>
+      <a href="{% url 'Artista_nuevo' %}">Nuevo artista</a>
+      <a href="{% url 'Pintura_nueva' %}">Nueva pintura</a>
+      <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+     {% else %}
+          <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+     {% endif %}
 
 
      {% if messages %}

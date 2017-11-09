@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .forms import ArtistaForm, PinturaForm
 from ObrasArte.models import Artista,Pintura, Obra
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def listar_pintura(request):
     pintura=Pintura.objects.all()
@@ -10,7 +11,7 @@ def listar_pintura(request):
 def listar_artista(request):
     artista=Artista.objects.all()
     return render(request,'lista2.html',{'artista':artista})
-
+@login_required 
 def Artista_nuevo(request):
     if request.method == "POST":
         formulario = ArtistaForm(request.POST)

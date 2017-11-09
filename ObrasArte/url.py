@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.listar_artista, name='listar_artista'),
+    url(r'^accounts/profile/$', views.listar_artista, name='listar_artista'),    
     url(r'^pinturas/$', views.listar_pintura, name='listar_pintura'),
     url(r'^nueva/$', views.Artista_nuevo, name='Artista_nuevo'),
     url(r'^nueva/pintura$', views.Pintura_nueva, name='Pintura_nueva'),
